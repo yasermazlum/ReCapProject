@@ -3,12 +3,13 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.InMemory
 {
-    class InMemoryCarDal : ICarDal
+    public class InMemoryCarDal : ICarDal
     {
         List<Car> _cars;
         public InMemoryCarDal()
@@ -48,9 +49,29 @@ namespace DataAccess.Concrete.InMemory
             Console.WriteLine("Arac silindi.");
         }
 
+        public Car Get(Expression<Func<Car, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Car> GetAll()
         {
             return _cars;
+        }
+
+        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Car> GetByBrandId(int brandId)
+        {
+            return _cars.Where(p => p.BrandId == brandId).ToList();
+        }
+
+        public List<Car> GetByColorId(int colorId)
+        {
+            return _cars.Where(p => p.ColorId == colorId).ToList();
         }
 
         public void Update(Car car)
