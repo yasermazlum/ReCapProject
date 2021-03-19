@@ -1,58 +1,33 @@
-﻿using DataAccess.Abstract;
+﻿using Core.DataAccess.EntityFramework;
+using DataAccess.Abstract;
 using Entities.Concrete;
-using Microsoft.EntityFrameworkCore;
-using System;
+using Entities.DtoConcrete;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfCarDal : ICarDal
+    public class EfCarDal : EfEntityRepositoryBase<Car, RentACarContext>, ICarDal
     {
-        public void Add(Car entity)
+        public List<CarDto> GetAllCarDetails()
         {
-            using (ReCapPrjContext ctx = new ReCapPrjContext())
+            using (RentACarContext context = new RentACarContext())
             {
-                var addedEntity = ctx.Entry(entity);
-                addedEntity.State = EntityState.Added;
-                ctx.SaveChanges();
-            }
-        }
+                var result = from ca in context.Cars
+                             join br in context.Brands on ca.BrandId equals br.Id
+                             join co in context.Colors on ca.ColorId equals co.Id
 
-        public void Delete(Car entity)
-        {
-            using (ReCapPrjContext ctx = new ReCapPrjContext())
-            {
-                var deletedEntity = ctx.Entry(entity);
-                deletedEntity.State = EntityState.Deleted;
-                ctx.SaveChanges();
-            }
-        }
-
-        public Car Get(Expression<Func<Car, bool>> filter = null)
-        {
-            using (ReCapPrjContext ctx = new ReCapPrjContext())
-            {
-                return ctx.Set<Car>().SingleOrDefault(filter);
-            }
-        }
-
-        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
-        {
-            using (ReCapPrjContext ctx = new ReCapPrjContext())
-            {
-                return filter == null ? ctx.Set<Car>().ToList() : ctx.Set<Car>().Where(filter).ToList();
-            }
-        }
-
-        public void Update(Car entity)
-        {
-            using (ReCapPrjContext ctx = new ReCapPrjContext())
-            {
-                var updatedEntity = ctx.Entry(entity);
-                updatedEntity.State = EntityState.Modified;
-                ctx.SaveChanges();
+                             select new CarDto
+                             {
+                                 Id = ca.Id,
+                                 BrandName = br.BrandName,
+                                 CarName = ca.CarName,
+                                 ColorName = co.ColorName,
+                                 DailyPrice = ca.DailyPrice,
+                                 Description = ca.Description,
+                                 ModelYear = ca.ModelYear
+                             };
+                return result.ToList();
             }
         }
     }
