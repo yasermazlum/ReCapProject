@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -55,6 +56,10 @@ namespace Business.Constants
         public static string UserDeleted = "Kullanici basariyla silindi..";
         public static string UsersListed = "Kullanici listesi getirildi..";
         public static string UserUpdated = "Kullanici basariyla guncellendi..";
+        #endregion
+
+        #region ERROR MESSAGES STRING 
+        public static string MaintenanceTime = "Sunucu suan bakimda.";
         #endregion
     }
 }

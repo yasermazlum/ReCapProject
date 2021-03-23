@@ -4,6 +4,7 @@ using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DtoConcrete;
+using System;
 using System.Collections.Generic;
 
 namespace Business.Concrete
@@ -19,6 +20,11 @@ namespace Business.Concrete
          
         public IDataResult<List<Car>> GetAll()
         {
+            if (DateTime.Now.Hour == 3)
+            {
+                return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
+            }
+
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarListed);
         }
 
@@ -56,7 +62,7 @@ namespace Business.Concrete
         }
 
         public IDataResult<Car> GetById(int carId)
-        {            
+        {
             return new SuccessDataResult<Car>(_carDal.Get(p => p.Id == carId), Messages.CarGetById);
         }
 
