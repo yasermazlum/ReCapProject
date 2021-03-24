@@ -28,6 +28,8 @@ namespace Business.Constants
         public static string CustomerDeleted = "Musteri basariyla silindi..";
         public static string CustomerListed = "Musteri listesi getirildi..";
         public static string CustomerUpdated= "Musteri basariyla guncellendi..";
+
+        public static string CustomerGetById = "Istenen Musteri getirildi..";
         #endregion
 
         #region BRAND MESSAGES STRING
@@ -35,6 +37,8 @@ namespace Business.Constants
         public static string BrandDeleted = "Marka basariyla silindi..";
         public static string BrandUpdated = "Marka basariyla guncellendi..";
         public static string BrandListed = "Marka listesi getirildi..";
+
+        public static string BrandGetById = "Istenen marka getirildi..";
         #endregion
 
         #region COLOR MESSAGES STRING
@@ -42,6 +46,8 @@ namespace Business.Constants
         public static string ColorDeleted = "Renk basariyla silindi..";
         public static string ColorListed = "Renk listesi getirildi..";
         public static string ColorUpdated = "Renk basariyla guncellendi..";
+
+        public static string ColorGetById = "Istenen arac rengi getirildi..";
         #endregion
 
         #region RENTAL MESSAGES STRING
@@ -49,6 +55,8 @@ namespace Business.Constants
         public static string RentalDeleted = "Kiralama olayi silindi..";
         public static string RentalListed = "Kiralanan arac listesi getirildi..";
         public static string RentalUpdated = "Kiralama basariyla guncellendi..";
+
+        public static string RentalGetById = "Istenilen kiralama basariyla getirildi..";
         #endregion
 
         #region USER MESSAGES STRING
@@ -56,10 +64,13 @@ namespace Business.Constants
         public static string UserDeleted = "Kullanici basariyla silindi..";
         public static string UsersListed = "Kullanici listesi getirildi..";
         public static string UserUpdated = "Kullanici basariyla guncellendi..";
+
+        public static string UserGetById = "Istenilen kullanici bilgisi getirildi..";
         #endregion
 
         #region ERROR MESSAGES STRING 
-        public static string MaintenanceTime = "Sunucu suan bakimda.";
+        public static string MaintenanceTime = "Sunucu suan bakimda. Isteginiz yerine getirilmedi.";
+
         #endregion
     }
 }
