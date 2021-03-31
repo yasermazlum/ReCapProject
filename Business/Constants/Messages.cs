@@ -1,11 +1,4 @@
-﻿using Entities.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Business.Constants
+﻿namespace Business.Constants
 {
     public static class Messages
     {
@@ -24,10 +17,10 @@ namespace Business.Constants
         #endregion
 
         #region CUSTOMER MESSAGES STRING
-        public static string CustomerAdded= "Musteri basariyla eklendi..";
+        public static string CustomerAdded = "Musteri basariyla eklendi..";
         public static string CustomerDeleted = "Musteri basariyla silindi..";
         public static string CustomerListed = "Musteri listesi getirildi..";
-        public static string CustomerUpdated= "Musteri basariyla guncellendi..";
+        public static string CustomerUpdated = "Musteri basariyla guncellendi..";
 
         public static string CustomerGetById = "Istenen Musteri getirildi..";
         #endregion
@@ -60,7 +53,7 @@ namespace Business.Constants
         #endregion
 
         #region USER MESSAGES STRING
-        public static string UserAdded ="Kullanici basariyla eklendi..";
+        public static string UserAdded = "Kullanici basariyla eklendi..";
         public static string UserDeleted = "Kullanici basariyla silindi..";
         public static string UsersListed = "Kullanici listesi getirildi..";
         public static string UserUpdated = "Kullanici basariyla guncellendi..";
@@ -70,6 +63,19 @@ namespace Business.Constants
 
         #region ERROR MESSAGES STRING 
         public static string MaintenanceTime = "Sunucu suan bakimda. Isteginiz yerine getirilmedi.";
+        #endregion
+
+        #region CAR IMAGE MESSAGE STRING
+        public static string CarImageAdded = "Arac resmi basarili sekilde eklendi.";
+        public static string CarImageDeleted = "Secilen arac resmi silindi.";
+        public static string CarImageGetById = "Belirtilen aracin resimleri getirildi.";
+        public static string CarImageUpdated = "Secilen arac resmi guncellendi.";
+        public static string GetCarImagesByCarId = "Secilen araca gore resimler getirildi.";
+        public static string CarImageGetAll = "Tum arac resimleri getirildi.";
+
+        public static string CarCheckImageLimited = "En fazla 5 adet arac eklenebilir.";
+        public static object ValidImageFileTypes = "Dosya tipiniz onaylandi.";
+        public static string InvalidImageExtension = "Uyumsuz dosya.";
 
         #endregion
     }

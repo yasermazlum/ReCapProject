@@ -3,11 +3,7 @@ using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
@@ -39,7 +35,7 @@ namespace Business.Concrete
 
         public IDataResult<List<User>> GetById(int id)
         {
-            return new SuccessDataResult<List<User>>(_userDal.GetAll(u=>u.Id == id), Messages.UserGetById);
+            return new SuccessDataResult<List<User>>(_userDal.GetAll(u => u.Id == id), Messages.UserGetById);
         }
 
         public IResult Update(User user)

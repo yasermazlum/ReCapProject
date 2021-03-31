@@ -5,8 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.InMemory
 {
@@ -88,7 +86,7 @@ namespace DataAccess.Concrete.InMemory
             carUpdate.DailyPrice = car.DailyPrice;
             carUpdate.Description = car.Description;
             carUpdate.ModelYear = car.ModelYear;
-           
+
 
             Console.WriteLine("Arac guncellendi. Model Yili: " + car.ModelYear);
         }

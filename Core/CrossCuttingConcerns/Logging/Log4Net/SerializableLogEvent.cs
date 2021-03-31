@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Text;
+﻿using log4net.Core;
 using System;
-using log4net.Core;
 
 namespace Core.CrossCuttingConcerns.Logging.Log4Net
 {

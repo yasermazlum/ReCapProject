@@ -1,6 +1,5 @@
 ﻿using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
-using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
 using System;
 
@@ -90,7 +89,7 @@ namespace ConsoleUI
 
         }
 
-        static void ColorTest() 
+        static void ColorTest()
         {
             ColorManager cm = new ColorManager(new EfColorDal());
             var result = cm.GetAll();
@@ -127,7 +126,7 @@ namespace ConsoleUI
 
         }
 
-        static void CustomerTest() 
+        static void CustomerTest()
         {
             //Customer customer1 = new Customer {UserId=1, CompanyName="Orjin Bilisim" };
             //Customer customer2 = new Customer {UserId=2, CompanyName="Van Bilisim" };
@@ -144,7 +143,7 @@ namespace ConsoleUI
             }
         }
 
-        static void RentalTest() 
+        static void RentalTest()
         {
             //Rental ren1 = new Rental { CarId = 5, CustomerId = 2, RentDate = new DateTime(2021, 03, 19) };
             //Rental ren2 = new Rental { CarId = 6, CustomerId = 1, RentDate = new DateTime(2021, 02, 12) };

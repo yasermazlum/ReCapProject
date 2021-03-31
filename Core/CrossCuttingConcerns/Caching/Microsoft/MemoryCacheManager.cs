@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using Core.Utilities.IoC;
+﻿using Core.Utilities.IoC;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Core.CrossCuttingConcerns.Caching.Microsoft
 {
-    public class MemoryCacheManager:ICacheManager
+    public class MemoryCacheManager : ICacheManager
     {
         private IMemoryCache _cache;
         public MemoryCacheManager()
         {
-           _cache =  ServiceTool.ServiceProvider.GetService<IMemoryCache>();
+            _cache = ServiceTool.ServiceProvider.GetService<IMemoryCache>();
         }
         public T Get<T>(string key)
         {

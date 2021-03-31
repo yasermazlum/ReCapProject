@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using log4net;
+using log4net.Repository;
 using System.IO;
 using System.Reflection;
-using System.Text;
 using System.Xml;
-using log4net;
-using log4net.Repository;
 
 namespace Core.CrossCuttingConcerns.Logging.Log4Net
 {
@@ -14,7 +11,7 @@ namespace Core.CrossCuttingConcerns.Logging.Log4Net
         private ILog _log;
         public LoggerServiceBase(string name)
         {
-            XmlDocument xmlDocument=new XmlDocument();
+            XmlDocument xmlDocument = new XmlDocument();
             xmlDocument.Load(File.OpenRead("log4net.config"));
 
             ILoggerRepository loggerRepository = LogManager.CreateRepository(Assembly.GetEntryAssembly(),
@@ -34,8 +31,8 @@ namespace Core.CrossCuttingConcerns.Logging.Log4Net
 
         public void Info(object logMessage)
         {
-            if(IsInfoEnabled)
-            _log.Info(logMessage);
+            if (IsInfoEnabled)
+                _log.Info(logMessage);
         }
 
         public void Debug(object logMessage)
