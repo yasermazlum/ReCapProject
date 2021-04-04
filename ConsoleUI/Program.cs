@@ -110,18 +110,18 @@ namespace ConsoleUI
 
             //User usr2 = new User { FirstName = "Mahsum", LastName = "Ermis", Email = "mahsum@gmail.com", Password = "12345" };
 
-            UserManager userManager = new UserManager(new EfUserDal());
+            //UserManager userManager = new UserManager(new EfUserDal());
 
-            var result = userManager.GetAll();
+            //var result = userManager.GetAll();
             //userManager.Add(usr1);
             //userManager.Add(usr2);
-            if (result.Success)
-            {
-                foreach (var item in result.Data)
-                {
-                    Console.WriteLine(item.FirstName);
-                }
-            }
+            //if (result.Success)
+            //{
+            //    foreach (var item in result.Data)
+            //    {
+            //        Console.WriteLine(item.FirstName);
+            //    }
+            //}
 
 
         }

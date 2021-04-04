@@ -8,6 +8,4 @@ namespace Core.CrossCuttingConcerns.Logging
         public List<LogParameter> LogParameters { get; set; }
 
     }
-
-
 }

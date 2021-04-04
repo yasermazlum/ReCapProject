@@ -1,8 +1,8 @@
-﻿using Core.Entities;
+﻿using Core.Entities.Abstract;
 
 namespace Entities.DtoConcrete
 {
-    public class CarDto : IEntity
+    public class CarDto : IDto
     {
         public int Id { get; set; }
         public string BrandName { get; set; }

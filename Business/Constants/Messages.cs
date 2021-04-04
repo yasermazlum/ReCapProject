@@ -1,4 +1,6 @@
-﻿namespace Business.Constants
+﻿using System.Runtime.Serialization;
+
+namespace Business.Constants
 {
     public static class Messages
     {
@@ -63,6 +65,7 @@
 
         #region ERROR MESSAGES STRING 
         public static string MaintenanceTime = "Sunucu suan bakimda. Isteginiz yerine getirilmedi.";
+        public static string AuthorizationDenied = "Bu islemi yapmak icin yetkin yok.";
         #endregion
 
         #region CAR IMAGE MESSAGE STRING
@@ -76,6 +79,7 @@
         public static string CarCheckImageLimited = "En fazla 5 adet arac eklenebilir.";
         public static object ValidImageFileTypes = "Dosya tipiniz onaylandi.";
         public static string InvalidImageExtension = "Uyumsuz dosya.";
+
 
         #endregion
     }
