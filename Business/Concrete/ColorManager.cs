@@ -14,7 +14,7 @@ namespace Business.Concrete
 {
     public class ColorManager : IColorService
     {
-        IColorDal _colorDal;
+        private readonly IColorDal _colorDal;
 
         public ColorManager(IColorDal colorDal)
         {
@@ -50,9 +50,9 @@ namespace Business.Concrete
 
         [CacheAspect]
         [PerformanceAspect(1)]
-        public IDataResult<List<Color>> GetById(int id)
+        public IDataResult<Color> GetById(int id)
         {
-            return new SuccessDataResult<List<Color>>(_colorDal.GetAll(), Messages.ColorGetById);
+            return new SuccessDataResult<Color>(_colorDal.Get(c=>c.Id==id), Messages.ColorGetById);
         }
 
         [SecuredOperation("admin, moderator")]

@@ -20,7 +20,7 @@ namespace Business.Concrete
 {
     class CarImageManager : ICarImageService
     {
-        ICarImageDal _carImageDal;
+        private readonly ICarImageDal _carImageDal;
 
         public CarImageManager(ICarImageDal carImageDal)
         {
@@ -28,9 +28,9 @@ namespace Business.Concrete
         }
 
         [SecuredOperation("admin, moderator")]
-        [PerformanceAspect(1)]        
         [ValidationAspect(typeof(CarImageValidator))]
         [CacheRemoveAspect("ICarService.Get")]
+        [PerformanceAspect(1)]
         public IResult Add(CarImage carImage, IFormFile formFile)
         {
             IResult result = BusinessRules.Run(CheckImageLimited(carImage.CarId, 5));
@@ -46,8 +46,8 @@ namespace Business.Concrete
         }
 
         [SecuredOperation("admin, moderator")]
-        [PerformanceAspect(1)]
         [CacheRemoveAspect("ICarImageService.Get")]
+        [PerformanceAspect(1)]
         public IResult Delete(CarImage carImage)
         {
             var oldpath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\wwwroot\\")) + _carImageDal.Get(p => p.Id == carImage.Id).ImagePath;
@@ -85,9 +85,9 @@ namespace Business.Concrete
         }
 
         [SecuredOperation("admin, moderator")]
-        [PerformanceAspect(1)]
         [ValidationAspect(typeof(CarImageValidator))]
         [CacheRemoveAspect("ICarImageService.Get")]
+        [PerformanceAspect(1)]
         public IResult Update(CarImage carImage, IFormFile formFile)
         {
             var oldPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\wwwroot\\")) + _carImageDal.Get(p => p.Id == carImage.Id).ImagePath;

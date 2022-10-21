@@ -9,7 +9,7 @@ namespace Business.Concrete
 {
     public class RentalManager : IRentalService
     {
-        IRentalDal _rentalDal;
+        private readonly IRentalDal _rentalDal;
 
         public RentalManager(IRentalDal rentalDal)
         {
@@ -33,9 +33,9 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(), Messages.RentalListed);
         }
 
-        public IDataResult<List<Rental>> GetById(int id)
+        public IDataResult<Rental> GetById(int id)
         {
-            return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(r => r.Id == id), Messages.RentalGetById);
+            return new SuccessDataResult<Rental>(_rentalDal.Get(r => r.Id == id), Messages.RentalGetById);
         }
 
         public IResult Update(Rental rental)

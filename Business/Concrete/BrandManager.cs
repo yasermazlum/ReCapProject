@@ -15,7 +15,7 @@ namespace Business.Concrete
 {
     public class BrandManager : IBrandService
     {
-        IBrandDal _brandDal;
+        private readonly IBrandDal _brandDal;
 
         public BrandManager(IBrandDal brandDal)
         {
@@ -24,9 +24,9 @@ namespace Business.Concrete
 
 
         [SecuredOperation("admin, moderator")]
-        [PerformanceAspect(1)]
         [ValidationAspect(typeof(BrandValidator))]
         [CacheRemoveAspect("IBrandService.Get")]
+        [PerformanceAspect(1)]
         public IResult Add(Brand brand)
         {
             _brandDal.Add(brand);
@@ -35,8 +35,8 @@ namespace Business.Concrete
         }
 
         [SecuredOperation("admin, moderator")]
-        [PerformanceAspect(1)]
         [CacheRemoveAspect("IBrandService.Get")]
+        [PerformanceAspect(1)]
         public IResult Delete(Brand brand)
         {
             _brandDal.Delete(brand);
@@ -47,20 +47,22 @@ namespace Business.Concrete
         [CacheAspect]
         public IDataResult<List<Brand>> GetAll()
         {
-            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(), Messages.BrandListed);
+            var list = _brandDal.GetAll();
+            return new SuccessDataResult<List<Brand>>(list, Messages.BrandListed);
         }
 
         [PerformanceAspect(1)]
         [CacheAspect]
-        public IDataResult<List<Brand>> GetById(int id)
+        public IDataResult<Brand> GetById(int id)
         {
-            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(b => b.Id == id), Messages.BrandGetById);
+            var data = _brandDal.Get(b => b.Id == id);
+            return new SuccessDataResult<Brand>(data, Messages.BrandGetById);
         }
 
         [SecuredOperation("admin, moderator")]
-        [PerformanceAspect(1)]
         [ValidationAspect(typeof(BrandValidator))]
         [CacheRemoveAspect("IBrandService.Get")]
+        [PerformanceAspect(1)]
         public IResult Update(Brand brand)
         {
             _brandDal.Update(brand);
